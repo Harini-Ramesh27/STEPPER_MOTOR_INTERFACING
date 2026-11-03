@@ -49,22 +49,22 @@ For running the stepper motor in clockwise and anticlockwise directions:
 ```asm
 ; Stepper Motor Interfacing Program in 8086 Assembly
 
-START:   MOV DI, 1200H        ; Initialize memory location to store array
-         MOV CX, 0004H        ; Initialize array size
+START:   MOV DI, 1200H        
+         MOV CX, 0004H        
 
-DOWN1:   MOV AL, [DI]         ; Copy the first data into AL
-         OUT C0, AL           ; Send it through port address
+DOWN1:   MOV AL, [DI]         
+         OUT C0, AL           
 
-         MOV DX, 1010H        ; Delay subroutine
+         MOV DX, 1010H        
 L1:      DEC DX
          JNZ L1
 
-         INC DI               ; Go to next memory location
-         LOOP DOWN1           ; Repeat until all data is sent
+         INC DI              
+         LOOP DOWN1           
 
-         JMP START            ; Continuous rotation
+         JMP START            
 
-         HLT                  ; Stop
+         HLT                  
 
 DATA:    DB 09H, 05H, 06H, 0AH ; Array of data
 ```
